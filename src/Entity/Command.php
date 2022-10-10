@@ -22,8 +22,15 @@ class Command
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
+    #[ORM\ManyToOne(inversedBy: 'commands')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Customer $customer = null;
+
     #[ORM\ManyToMany(targetEntity: Product::class, inversedBy: 'commands')]
     private Collection $products;
+
+    #[ORM\OneToOne(mappedBy: 'command', cascade: ['persist', 'remove'])]
+    private ?Payment $payment = null;
 
     public function __construct()
     {
@@ -59,6 +66,18 @@ class Command
         return $this;
     }
 
+    public function getCustomer(): ?Customer
+    {
+        return $this->customer;
+    }
+
+    public function setCustomer(?Customer $customer): self
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
     /**
      * @return Collection<int, Product>
      */
@@ -79,6 +98,23 @@ class Command
     public function removeProduct(Product $product): self
     {
         $this->products->removeElement($product);
+
+        return $this;
+    }
+
+    public function getPayment(): ?Payment
+    {
+        return $this->payment;
+    }
+
+    public function setPayment(Payment $payment): self
+    {
+        // set the owning side of the relation if necessary
+        if ($payment->getCommand() !== $this) {
+            $payment->setCommand($this);
+        }
+
+        $this->payment = $payment;
 
         return $this;
     }

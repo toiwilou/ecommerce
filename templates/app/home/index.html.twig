@@ -1,0 +1,24 @@
+{% extends 'app/base/index.html.twig' %}
+{% block title %}Accueil{% endblock %}
+{% block body %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('home-app') }}
+{% endblock %}
+<div id="home-app">
+    <section class="header">
+        <div class="div-left">
+            <span class="title1">Business is now digital</span><br>
+            <span class="title2">Our workplace</span>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Exercitationem saepe aliquam illum optio dolorem fuga esse 
+                vero, quam quo est rem nostrum voluptate, rerum, ad sint 
+                eligendi amet repudiandae velit.
+            </p>
+            <button class="btn btn-primary">voir</button>
+            <button class="btn btn-outline-secondary">En savoir plus</button>
+        </div>
+    </section>
+    <section class="main"></section>
+</div>
+{% endblock %}
