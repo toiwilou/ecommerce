@@ -6,19 +6,40 @@
 {% endblock %}
 <div id="home-app">
     <section class="header">
-        <div class="div-left">
-            <span class="title1">Business is now digital</span><br>
-            <span class="title2">Our workplace</span>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Exercitationem saepe aliquam illum optio dolorem fuga esse 
-                vero, quam quo est rem nostrum voluptate, rerum, ad sint 
-                eligendi amet repudiandae velit.
-            </p>
-            <button class="btn btn-primary">voir</button>
-            <button class="btn btn-outline-secondary">En savoir plus</button>
+        <div class="div-content">
+            <div class="div-left">
+                <h1 class="title1"><strong>Business is now digital</strong></h1>
+                <h3 class="title2"><strong>Our workplace</strong></h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Exercitationem saepe aliquam illum optio dolorem fuga esse 
+                    vero, quam quo est rem nostrum voluptate, rerum, ad sint 
+                    eligendi amet repudiandae velit.
+                </p>
+            </div>
+            <div class="div-right">
+                <div class="div-search v-center shadow">
+                    <input type="text" class="form-control" placeholder="Rechercher...">
+                    <div class="icon-search">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                </input>
+            </div>
         </div>
     </section>
-    <section class="main"></section>
+    <div class="main">
+        <section class="sidebar">
+            <span></span>
+            <ul>
+                {% for i in (0..7) %}
+                    <li></li>
+                {% endfor %}
+            </ul>
+        </section>
+        <section class="content"></section>
+    </div>
 </div>
+{% block javascripts %}
+    {{ encore_entry_script_tags('home-app') }}
+{% endblock %}
 {% endblock %}
