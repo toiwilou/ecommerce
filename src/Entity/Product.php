@@ -28,6 +28,10 @@ class Product
     #[ORM\ManyToMany(targetEntity: Command::class, mappedBy: 'products')]
     private Collection $commands;
 
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $category = null;
+
     public function __construct()
     {
         $this->commands = new ArrayCollection();
@@ -97,6 +101,18 @@ class Product
         if ($this->commands->removeElement($command)) {
             $command->removeProduct($this);
         }
+
+        return $this;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }
