@@ -1,0 +1,33 @@
+@media screen {
+    .btn-round-ecom,
+    .btn-outline-round-ecom {
+        border: 2px solid #f58207;
+        color: #10298f;
+        border-radius: 50px;
+        padding: 7px 20px;
+        font-size: 20px;
+    }
+    .btn-round-ecom {
+        background-color: #f58207;
+    }
+    .btn-round-ecom:hover {
+        border: 2px solid #eb9941;
+        background-color: #eb9941;
+        transition: 0.2s;
+    }
+    .btn-outline-round-ecom {
+        background-color: white;
+    }
+    .btn-outline-round-ecom:hover {
+        background-color: #f7ece1;
+        transition: 0.2s;
+    }
+    .none {
+        display: none;
+    }
+    .v-center {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

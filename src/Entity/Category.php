@@ -18,7 +18,11 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+<<<<<<< HEAD
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
+=======
+    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class, orphanRemoval: true)]
+>>>>>>> develop
     private Collection $products;
 
     public function __construct()

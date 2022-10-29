@@ -1,13 +1,39 @@
-<section id="header-app">
-    <div class="logo">LOGO</div>
+{% block stylesheets %}
+    {{ encore_entry_link_tags('header-app') }}
+{% endblock %}
+<section id="header-app" class="shadow-sm">
+    <a href="{{ path('app_home') }}">
+        <div class="logo">
+            <img src="{{ asset('images/app/logo-ecommerce.png') }}">
+        </div>
+    </a>
     <nav>
-        <ul>
-            <a href="#"><li>item</li></a>
-            <a href="#"><li>item</li></a>
-            <a href="#"><li>item</li></a>
-            <a href="#"><li>item</li></a>
-            <a href="#"><li>item</li></a>
+        <ul class="v-center">
+            <li><a href="#">Catalogues</a></li>
+            <li><a href="#">Contactez-nous</a></li>
         </ul>
     </nav>
-    <div class="icons">Icons</div>
+    <div class="div-right">
+        <div class="div-content v-center">
+            <div class="profile">
+                <div class="before-connection">
+                    <button style="margin-right: 20px;" class="btn-round-ecom">Connexion</button>
+                    <button style="margin-right: 100px;" class="btn-outline-round-ecom">Inscription</button>
+                </div>
+                <div class="after-connection">
+
+                </div>
+                <div class="cart">
+                    <div class="cart-icon">
+                        <span class="cart-number">3</span>
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        <span class="cart-price">12,47 <span><strong>€</strong></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+{% block javascripts %}
+    {{ encore_entry_script_tags('header-app') }}
+{% endblock %}

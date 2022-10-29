@@ -32,6 +32,15 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
+<<<<<<< HEAD
+=======
+    #[ORM\Column(length: 255)]
+    private ?string $picture = null;
+
+    #[ORM\Column]
+    private ?int $quantity = null;
+
+>>>>>>> develop
     public function __construct()
     {
         $this->commands = new ArrayCollection();
@@ -116,4 +125,31 @@ class Product
 
         return $this;
     }
+<<<<<<< HEAD
+=======
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): self
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+>>>>>>> develop
 }
