@@ -56,7 +56,45 @@
     #home-app .main {
         display: flex;
     }
-    #home-app .main {
-        display: flex;
+    #home-app .main .sidebar {
+        width: 350px;
+        flex: none;
+        background-color: #071e7a;
+        color: white;
+    }
+    #home-app .main .sidebar ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    #home-app .main .sidebar li {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    #home-app .main .content {
+        flex: auto;
+    }
+    #home-app .main .content .product-item {
+        width: 204px;
+        border: 2px solid #e67104;
+        border-radius: 6px;
+        float: left;
+        margin: 20px;
+    }
+    #home-app .main .content .product-item .favorite {
+        position: absolute;
+        width: 200px;
+        padding: 5px;
+    }
+    #home-app .main .content .product-item .favorite i {
+        float: right;
+    }
+    #home-app .main .content .product-item .image {
+        width: 200px;
+    }
+    #home-app .main .content .product-item img {
+        width: 100%;
+        border-radius: 6px;
     }
 }

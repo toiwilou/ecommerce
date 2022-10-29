@@ -23,20 +23,41 @@
                     <div class="icon-search">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </div>
-                </input>
+                </div>
             </div>
         </div>
     </section>
     <div class="main">
         <section class="sidebar">
-            <span></span>
+            <span>Toutes les categories</span>
             <ul>
-                {% for i in (0..7) %}
-                    <li></li>
+                {% for category in categories %}
+                    <li>{{ category.name }}</li>
                 {% endfor %}
             </ul>
         </section>
-        <section class="content"></section>
+        <section class="content">
+            <div class="product-content">
+                {% set i = 0 %}
+                {% for product in products %}
+                    <div class="product-item">
+                        <div class="favorite">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="image">
+                            <img src="{{ asset("images/product/" ~ product.picture ~ "") }}">
+                        </div>
+                        <div style="padding: 20px;" class="div-desc">
+                            <h3 style="color: #071e7a; text-align: center;">{{ product.name }}</h3>
+                            <h3 style="color: #ff6600; text-align: center;">{{ product.price }} €</h3>
+                            <h6 style="color: #071e7a;">{{ product.description }}</h6>
+                            <button id="add-{{ i }}" class="btn-round-ecom">Ajouter</button>
+                        </div>
+                    </div>
+                    {% set i = i + 1 %}
+                {% endfor %}
+            </div>
+        </section>
     </div>
 </div>
 {% block javascripts %}

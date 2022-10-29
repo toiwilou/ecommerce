@@ -1,0 +1,15 @@
+{% extends 'admin/base/index.html.twig' %}
+{% block title %}Accueil{% endblock %}
+{% block body %}{# 
+{% block stylesheets %}
+    {{ encore_entry_link_tags('product-app') }}
+{% endblock %} #}
+<div id="product-app">
+    <div style="padding: 40px;">
+        {{ form(form) }}
+    </div>
+</div>
+{# {% block javascripts %}
+    {{ encore_entry_script_tags('product-app') }}
+{% endblock %} #}
+{% endblock %}
