@@ -1,0 +1,49 @@
+body {
+    display: flex;
+    flex-wrap: wrap; /* Les éléments passent à la ligne s'ils ne rentrent pas tous sur la même ligne*/
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+#formulaire {
+    display: block;
+    margin-left: 50%;
+    margin-right: 50%;
+}
+#left-section, 
+#right-section {
+    width: 50%;
+}
+#left-section {
+    background-image: linear-gradient(180deg, #abfaf2 0, #8feae6 25%, #6cd8d8 50%, #41c6cb 75%, #00b6c1 100%);
+    position: relative;
+    height: 700px;
+}
+#right-section {
+    background-color:aliceblue;
+}
+.v-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#right-section .logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 50%;
+}
+#right-section .logo {
+    width: 400px;
+    margin: 0 auto;
+}
+#right-section .logo img {
+    width: 100%;
+}
+#left-section .inscription{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30em;
+}
