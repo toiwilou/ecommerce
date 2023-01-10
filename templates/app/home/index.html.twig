@@ -24,7 +24,10 @@
     </section>
     <div class="main">
         <section class="sidebar">
-            
+            <h2 >Catégories</h2>
+            {% for categories in categories %}
+                <a href="#">{{ categories.name }}</a>
+            {% endfor %}    
         </section>
         <section class="content">
             <div class="product-content" data-length-products="{{ products|length }}">

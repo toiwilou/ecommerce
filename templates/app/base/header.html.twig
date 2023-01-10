@@ -15,7 +15,9 @@
             </ul>
             <div class="div-search-container">
                 <div class="div-search">
-                    <input type="text" class="form-control" placeholder="Rechercher...">
+                    <form action="{{"/"}}" method="get">
+                        <input type="search" name="search" class="form-control" placeholder="Rechercher...">
+                    </form>
                     <div class="icon-search">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </div>
@@ -27,8 +29,8 @@
         <div class="div-content v-center">
             <div class="profile">
                 <div class="before-connection">
-                    <button style="margin-right: 20px;" class="btn-round-ecom">Connexion</button>
-                    <button style="margin-right: 50px;" class="btn-outline-round-ecom">Inscription</button>
+                    <a href="{{"/login"}}" style="margin-right: 20px; text-decoration:none;" class="btn-round-ecom">Connexion</a>
+                    <a href="{{"/register"}}" style="margin-right: 50px; text-decoration:none;" class="btn-outline-round-ecom">Inscription</a>
                 </div>
                 <div class="after-connection">
 
