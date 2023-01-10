@@ -9,8 +9,9 @@ html, body {
 }
 #formulaire {
     display: block;
-    margin-left: 50%;
-    margin-right: 50%;
+    margin: 0 auto;
+    position: relative;
+    width: 45%;
 }
 #left-section, 
 #right-section {
@@ -38,6 +39,7 @@ html, body {
 #right-section .logo {
     width: 400px;
     margin: 0 auto;
+    position: relative;
 }
 #right-section .logo img {
     width: 100%;
@@ -45,5 +47,5 @@ html, body {
 #left-section .inscription{
     margin-left: auto;
     margin-right: auto;
-    width: 30em;
+    width: 60%;
 }

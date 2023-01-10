@@ -27,8 +27,12 @@
         <div class="div-content v-center">
             <div class="profile">
                 <div class="before-connection">
-                    <button style="margin-right: 20px;" class="btn-round-ecom">Connexion</button>
-                    <button style="margin-right: 50px;" class="btn-outline-round-ecom">Inscription</button>
+                    <a href="{{path('app_login')}}"> 
+                        <button style="margin-right: 20px;" class="btn-round-ecom">Connexion</button> 
+                    </a>
+                    <a href="{{path('app_register')}}">
+                        <button style="margin-right: 50px;" class="btn-outline-round-ecom">Inscription</button>
+                    </a>
                 </div>
                 <div class="after-connection">
 
@@ -37,7 +41,7 @@
                     <div class="cart-icon">
                         <span class="cart-number" hidden>0</span>
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span class="cart-price">0.00 </span><span style="font-size: 25px;"><strong>€</strong></span>
+                        <span class="cart-price">0,00 </span><span style="font-size: 25px;"><strong>€</strong></span>
                     </div>
                 </div>
             </div>
