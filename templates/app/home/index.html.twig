@@ -33,7 +33,7 @@
             <div class="product-content" data-length-products="{{ products|length }}">
                 {% set i = 0 %}
                 {% for product in products %}
-                    <div class="product-item">
+                    <div class="product-item product-item-{{i}}" data-id="{{product.id}}">
                         <div class="favorite">
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
@@ -42,7 +42,7 @@
                         </div>
                         <div style="padding: 20px;" class="div-desc">
                             <h3 style="color: #071e7a; text-align: center;">{{ product.name }}</h3>
-                            <h3 style="color: #ff6600; text-align: center;">{{ product.price }} €</h3>
+                            <h3 style="color: #ff6600; text-align: center;">{{ product.price|replace({".": ","}) }} €</h3>
                             <h6 style="color: #071e7a;">{{ product.description }}</h6>
                             <button id="btn-add-{{ i }}" data-price="{{ product.price }}" class="btn-round-ecom">Ajouter</button>
                         </div>
