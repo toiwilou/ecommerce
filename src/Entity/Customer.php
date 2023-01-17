@@ -15,8 +15,7 @@ class Customer
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $address = null;
+
 
     #[ORM\OneToOne(inversedBy: 'customer', cascade: ['persist', 'remove'])]
     private ?User $users = null;
@@ -24,26 +23,23 @@ class Customer
     #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Command::class)]
     private Collection $commands;
 
+    #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Address::class, orphanRemoval: true)]
+    private Collection $addresses;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $telephone = null;
+
+    
+
     public function __construct()
     {
         $this->commands = new ArrayCollection();
+        $this->addresses = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getAddress(): ?string
-    {
-        return $this->address;
-    }
-
-    public function setAddress(string $address): self
-    {
-        $this->address = $address;
-
-        return $this;
     }
 
     public function getUsers(): ?User
@@ -87,4 +83,48 @@ class Customer
 
         return $this;
     }
+     /**
+     * @return Collection<int, Address>
+     */
+    public function getAddresses(): Collection
+    {
+        return $this->addresses;
+    }
+
+    public function addAddress(Address $address): self
+    {
+        if (!$this->addresses->contains($address)) {
+            $this->addresses->add($address);
+            $address->setCustomer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAddress(Address $address): self
+    {
+        if ($this->addresses->removeElement($address)) {
+            // set the owning side to null (unless already changed)
+            if ($address->getCustomer() === $this) {
+                $address->setCustomer(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getTelephone(): ?int
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(?int $telephone): self
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+    
+
+   
 }

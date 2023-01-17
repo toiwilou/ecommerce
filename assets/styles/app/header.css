@@ -4,6 +4,19 @@
     #header-app .profile .before-connection {
         display: flex;
     }
+    #header-app .profile .before-connection #firstname {
+        font-size: 20px;
+        width: auto;
+        margin-top: 11px;
+        margin-right: 15px;
+        text-align: center;
+        color: #10298f;
+        text-decoration: none;
+    }
+    #header-app .profile .before-connection #firstname:hover {
+        color: #e67104;
+        transition: 0.2s;
+    }
     #header-app {
         background-color: white;
         padding: 10px;

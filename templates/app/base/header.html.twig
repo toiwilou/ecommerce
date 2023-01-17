@@ -29,8 +29,13 @@
         <div class="div-content v-center">
             <div class="profile">
                 <div class="before-connection">
-                    <a href="{{"/login"}}" style="margin-right: 20px; text-decoration:none;" class="btn-round-ecom">Connexion</a>
-                    <a href="{{"/register"}}" style="margin-right: 50px; text-decoration:none;" class="btn-outline-round-ecom">Inscription</a>
+                    {% if app.user %}
+                    <a id="firstname" href="/profil">{{ app.user.firstname }} {{ app.user.lastname }}</a>
+                        <a href="{{ path('app_logout') }}" style="margin-right: 20px; text-decoration:none;" class="btn-round-ecom">Deconnexion</a>
+                    {% else %}
+                        <a href="{{"/login"}}" style="margin-right: 20px; text-decoration:none;" class="btn-round-ecom">Connexion</a>
+                        <a href="{{"/register"}}" style="margin-right: 50px; text-decoration:none;" class="btn-outline-round-ecom">Inscription</a>
+                    {% endif %}
                 </div>
                 <div class="after-connection">
 
@@ -48,4 +53,5 @@
 </section>
 {% block javascripts %}
     {{ encore_entry_script_tags('header-app') }}
+    
 {% endblock %}
