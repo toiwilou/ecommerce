@@ -1,0 +1,54 @@
+{% extends 'app/base/index.html.twig' %}
+
+{% block body %}
+{% block stylesheets %}
+    {{ encore_entry_link_tags('contact-app') }}
+{% endblock %}
+<div style="background:url('{{asset("images/app/tof.jpg")}}');
+background-repeat: no-repeat;
+  background-size: cover; " id='body'>
+<form id='form' action="" method="post">
+	<div class="container col-md-6 pt-5 offset-5">
+		<div style="background:none;border: 1px solid white" class="card">
+			<div style="background:#87C6BF" class="card-heard text-center" id="header">
+				<h2>Contatez-nous</h2>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col-md-10 offset-1">
+						<label class="label" for="">
+							Nom
+						</label>
+						<input style="background:none;color:white;" type="text" name="nom" placeholder='Nom' class="form-control input">
+
+						<label class="label" for="">
+							Prenom
+						</label>
+						<input style="background:none;" type="text" name="prenom" placeholder='Prenom' class="form-control input">
+
+
+						<label class="label" for="">
+							Email
+						</label>
+						<input style="background:none;" type="email" name="email" placeholder='Email' class="form-control input">
+
+						<label class="label" for="">
+							Message
+						</label>
+						<textarea style="background:none;color:white;"
+						 name="message" id="" cols="30" rows="3"
+						 class="form-control input"
+						 placeholder="Message"
+						></textarea>
+					</div>
+				</div>
+				<button type='submit' class="btn btn-outline-primary col-md-3 mt-3 offset-5 text-white">Envoyer</button>
+			</div>
+		</div>
+	</div>
+</form></div>
+
+
+
+
+{% endblock %}

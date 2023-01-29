@@ -54,4 +54,9 @@ class ProductService
 
         $this->em->flush();
     }
+    
+    public function getProductById($id): Product
+    {
+        return $this->productRepository->findOneBy(['id' => $id]);
+    }
 }
