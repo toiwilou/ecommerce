@@ -1,56 +1,67 @@
 {% extends 'app/base/index.html.twig' %}
-{% block title %}Accueil{% endblock %}
+{% block title %}Accueil
+{% endblock %}
 {% block body %}
-{% block stylesheets %}
-    {{ encore_entry_link_tags('home-app') }}
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('home-app') }}
+	{% endblock %}
+	<div id="home-app">
+		<section class="header">
+			<div class="div-content">
+				<div class="div-left">
+					<h1 class="title1">
+						<strong>Business is now digital</strong>
+					</h1>
+					<h3 class="title2">
+						<strong>Our workplace</strong>
+					</h3>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						                    Exercitationem saepe aliquam illum optio dolorem fuga esse 
+						                    vero, quam quo est rem nostrum voluptate, rerum, ad sint 
+						                    eligendi amet repudiandae velit.
+					</p>
+				</div>
+				<div class="div-right"></div>
+			</div>
+		</section>
+		<div class="main">
+
+			<section class=" shadow bg-red rounded sidebar">
+				<h2>Catégories</h2>
+				{% for category in categories %}
+					<a href="#">
+						<i class="fa fa-address-book" aria-hidden="true"></i>
+						{{ category.name }}</a>
+				{% endfor %}
+			</section>
+			<section class="content">
+				<div class="product-content" data-length-products="{{ products|length }}">
+					{% set i = 0 %}
+					{% for product in products %}
+						<div class="product-item product-item-{{i}}" data-id="{{product.id}}">
+							<div class="favorite">
+								<i class="fa fa-star" aria-hidden="true"></i>
+							</div>
+							<div class="image">
+								<img src="{{ asset("images/product/" ~ product.picture ~ "") }}">
+							</div>
+							<div style="padding: 20px;" class="div-desc">
+								<h3 style="color: #071e7a; text-align: center;">{{ product.name }}</h3>
+								<h3 style="color: #ff6600; text-align: center;">{{ product.price|replace({".": ","}) }}
+									€</h3>
+								<h6 style="color: #071e7a;">{{ product.description }}</h6>
+								<button id="btn-add-{{ i }}" data-price="{{ product.price }}" class="btn-round-ecom">Ajouter</button>
+							</div>
+						</div>
+						{% set i = i + 1 %}
+					{% endfor %}
+				</div>
+			</section>
+		</div>
+	</div>
+	{% block javascripts %}
+		{{ encore_entry_script_tags('home-app') }}
+	{% endblock %}
 {% endblock %}
-<div id="home-app">
-    <section class="header">
-        <div class="div-content">
-            <div class="div-left">
-                <h1 class="title1"><strong>Business is now digital</strong></h1>
-                <h3 class="title2"><strong>Our workplace</strong></h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Exercitationem saepe aliquam illum optio dolorem fuga esse 
-                    vero, quam quo est rem nostrum voluptate, rerum, ad sint 
-                    eligendi amet repudiandae velit.
-                </p>
-            </div>
-            <div class="div-right">
-            
-            </div>
-        </div>
-    </section>
-    <div class="main">
-        <section class="sidebar">
-            
-        </section>
-        <section class="content">
-            <div class="product-content" data-length-products="{{ products|length }}">
-                {% set i = 0 %}
-                {% for product in products %}
-                    <div class="product-item product-item-{{i}}" data-id="{{product.id}}">
-                        <div class="favorite">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
-                        <div class="image">
-                            <img src="{{ asset("images/product/" ~ product.picture ~ "") }}">
-                        </div>
-                        <div style="padding: 20px;" class="div-desc">
-                            <h3 style="color: #071e7a; text-align: center;">{{ product.name }}</h3>
-                            <h3 style="color: #ff6600; text-align: center;">{{ product.price|replace({".": ","}) }} €</h3>
-                            <h6 style="color: #071e7a;">{{ product.description }}</h6>
-                            <button id="btn-add-{{ i }}" data-price="{{ product.price }}" class="btn-round-ecom">Ajouter</button>
-                        </div>
-                    </div>
-                    {% set i = i + 1 %}
-                {% endfor %}
-            </div>
-        </section>
-    </div>
-</div>
-{% block javascripts %}
-    {{ encore_entry_script_tags('home-app') }}
-{% endblock %}
-{% endblock %}
+

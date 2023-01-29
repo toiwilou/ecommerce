@@ -1,0 +1,101 @@
+{% extends 'app/base/index.html.twig' %}
+{% block title %}Profil
+{% endblock %}
+{% block body %}
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('profil-app') }}
+	{% endblock %}
+<div id="profil-app">
+	<div class="main">
+		<section class=" shadow bg-red rounded sidebar">
+			<div style="padding:15px;   background-color: #f7d7b9; text-align: center;">
+				{% if app.user.picture != NULL %}
+					<img data-toggle="modal" data-target="#exampleModal1" style="width:90px;height:90px; border-radius:50%; cursor: pointer;" src="{{ asset('images/profile/' ~ app.user.picture ~ '') }}"/>
+				{% else %}
+					<img data-toggle="modal" data-target="#exampleModal1" style="width:90px;height:90px; border-radius:50%; cursor: pointer;" src="{{asset('images/app/photo.png')}} "/>
+				{% endif %}
+				<p>
+					<b style="font-size:22px;">{{ app.user.firstname }}</b><br>
+					{{ app.user.email }}</p>
+
+			</div>
+			<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModal1Label" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModal1Label">Changer la photo de profil</h5>
+						</div>
+						<form>
+							<div class="modal-body">
+								<input type="file" class="form-control" id="prenom" name="picture" value="{{ app.user.picture }}">
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-dismiss="modal">fermer</button>
+								<button type="submit" class="btn btn-primary">sauvegarder</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<a href="/profil">
+				<i class="bi bi-house-door"></i>
+				Tableau de bord</a>
+			<a href="/historique">
+				<i class="bi bi-file-earmark-bar-graph"></i>
+				Historique d'achat</a>
+			<a href="/favoris">
+				<i class="bi bi-heart"></i>
+				Favoris</a>
+			<a href="{{path('app_gestionprofil')}}">
+				<i class="bi bi-person"></i>
+				Gestion de profil</a>
+
+		</section>
+		<section class="content">
+			<h5 style="margin-bottom:30px;">Tableau de bord</h5>
+			<div class="row">
+				<div class="col-xl-3 ">
+					<div class="card bg-primary text-white mb-4">
+						<div class="card-body">1 Produit</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<p class="small text-white stretched-link">dans votre panier</p>
+							<div class="small text-white">
+								<i class="fas fa-angle-right"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 ">
+					<div class="card bg-info text-white mb-4">
+						<div class="card-body">1 Produit</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<p class="small text-white stretched-link">vous avez commandé</p>
+							<div class="small text-white">
+								<i class="fas fa-angle-right"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-3 ">
+					<div class="card bg-success text-white mb-4">
+						<div class="card-body">1 Produit</div>
+						<div class="card-footer d-flex align-items-center justify-content-between">
+							<p class="small text-white stretched-link">dans vos favoris</p>
+							<div class="small text-white">
+								<i class="fas fa-angle-right"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+
+
+{% block javascripts %}
+	{{ encore_entry_script_tags('profil-app') }}
+{% endblock %}
+{% endblock %}
+
+

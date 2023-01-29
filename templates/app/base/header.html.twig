@@ -15,7 +15,9 @@
             </ul>
             <div class="div-search-container">
                 <div class="div-search">
-                    <input type="text" class="form-control" placeholder="Rechercher...">
+                    <form action="{{"/"}}" method="get">
+                        <input type="search" name="search" class="form-control" placeholder="Rechercher...">
+                    </form>
                     <div class="icon-search">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </div>
@@ -27,12 +29,13 @@
         <div class="div-content v-center">
             <div class="profile">
                 <div class="before-connection">
-                    <a href="{{path('app_login')}}"> 
-                        <button style="margin-right: 20px;" class="btn-round-ecom">Connexion</button> 
-                    </a>
-                    <a href="{{path('app_register')}}">
-                        <button style="margin-right: 50px;" class="btn-outline-round-ecom">Inscription</button>
-                    </a>
+                    {% if app.user %}
+                    <a id="firstname" href="/profil">{{ app.user.firstname }} {{ app.user.lastname }}</a>
+                        <a href="{{ path('app_logout') }}" style="margin-right: 20px; text-decoration:none;" class="btn-round-ecom">Deconnexion</a>
+                    {% else %}
+                        <a href="{{"/login"}}" style="margin-right: 20px; text-decoration:none;" class="btn-round-ecom">Connexion</a>
+                        <a href="{{"/register"}}" style="margin-right: 50px; text-decoration:none;" class="btn-outline-round-ecom">Inscription</a>
+                    {% endif %}
                 </div>
                 <div class="after-connection">
 
@@ -41,7 +44,7 @@
                     <div class="cart-icon">
                         <span class="cart-number" hidden>0</span>
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        <span class="cart-price">0,00 </span><span style="font-size: 25px;"><strong>€</strong></span>
+                        <span class="cart-price">0.00 </span><span style="font-size: 25px;"><strong>€</strong></span>
                     </div>
                 </div>
             </div>
@@ -50,4 +53,5 @@
 </section>
 {% block javascripts %}
     {{ encore_entry_script_tags('header-app') }}
+    
 {% endblock %}

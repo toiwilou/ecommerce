@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Customer;
+use App\Entity\Address;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Customer>
+ * @extends ServiceEntityRepository<Address>
  *
- * @method Customer|null find($id, $lockMode = null, $lockVersion = null)
- * @method Customer|null findOneBy(array $criteria, array $orderBy = null)
- * @method Customer[]    findAll()
- * @method Customer[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Address|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Address|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Address[]    findAll()
+ * @method Address[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CustomerRepository extends ServiceEntityRepository
+class AddressRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Customer::class);
+        parent::__construct($registry, Address::class);
     }
 
-    public function add(Customer $entity, bool $flush = false): void
+    public function add(Address $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class CustomerRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Customer $entity, bool $flush = false): void
+    public function remove(Address $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -41,32 +41,33 @@ class CustomerRepository extends ServiceEntityRepository
     public function getAddressById($id)
     {
         return $this->createQueryBuilder('a')
-        ->andWhere('a.id = :val')
+        ->andWhere('a.customer = :val')
         ->setParameter('val', $id)
         ->getQuery()
         ->getResult()
         ;
 
     }
+
 //    /**
-//     * @return Customer[] Returns an array of Customer objects
+//     * @return Address[] Returns an array of Address objects
 //     */
 //    public function findByExampleField($value): array
 //    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
+//        return $this->createQueryBuilder('a')
+//            ->andWhere('a.exampleField = :val')
 //            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
+//            ->orderBy('a.id', 'ASC')
 //            ->setMaxResults(10)
 //            ->getQuery()
 //            ->getResult()
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Customer
+//    public function findOneBySomeField($value): ?Address
 //    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
+//        return $this->createQueryBuilder('a')
+//            ->andWhere('a.exampleField = :val')
 //            ->setParameter('val', $value)
 //            ->getQuery()
 //            ->getOneOrNullResult()
