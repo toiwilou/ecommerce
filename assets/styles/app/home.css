@@ -116,4 +116,10 @@
         width: 100%;
         border-radius: 6px;
     }
+    .image_product{
+        height: 600px;
+    }
+    .product-item{
+        height: 450px;
+    }
 }
