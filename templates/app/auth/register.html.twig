@@ -1,0 +1,24 @@
+{% extends 'app/auth/base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<div id="left-section">
+    <h1  class="text-center">Inscription</h1>
+        <div class="inscription">
+            {{ form_start(form) }}
+                {{ form_row(form.firstname) }}
+                {{ form_row(form.lastname) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.password)}}
+            
+                <button type="submit" class="btn btn-success">S'inscrire</button>
+            {{ form_end(form) }}
+        </div>
+</div>
+<div id="right-section">
+     <div class="logo" class="text-center">
+            <img src="{{ asset('images/app/logo-ecommerce.png') }}" class="img-responsive center-block">
+        </div>
+</div>
+{% endblock %}

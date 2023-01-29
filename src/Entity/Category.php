@@ -25,6 +25,9 @@ class Category
 >>>>>>> develop
     private Collection $products;
 
+    #[ORM\Column(length: 255)]
+    private ?string $icon = null;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -73,6 +76,18 @@ class Category
                 $product->setCategory(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(string $icon): self
+    {
+        $this->icon = $icon;
 
         return $this;
     }

@@ -58,17 +58,36 @@
     }
     #home-app .main {
         display: flex;
+        margin: 20px;
     }
     #home-app .main .sidebar {
         width: 350px;
         flex: none;
-        background-color: #071e7a;
-        color: white;
+        background-color: #ffffff;
+        color: black;
+    }
+    #home-app .main .sidebar a {
+        display: block;
+        color: black;
+        padding: 16px;
+        text-decoration: none;
+    }
+    #home-app .main .sidebar a:hover {
+        background-color: f1f1f1;
+        box-shadow: 0 1px 2px 0;
+        color: black;
+    }
+    #home-app .main .sidebar h2 {
+        background-color: #f7d7b9;
+        padding: 16px;
     }
     #home-app .main .sidebar ul {
         margin: 0;
         padding: 0;
         list-style-type: none;
+    }
+    #home-app .main .sidebar ul span {
+        font-size: 30px;
     }
     #home-app .main .sidebar li {
         margin: 0;
