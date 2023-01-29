@@ -32,15 +32,12 @@ class Product
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
 
-<<<<<<< HEAD
-=======
     #[ORM\Column(length: 255)]
     private ?string $picture = null;
 
     #[ORM\Column]
     private ?int $quantity = null;
 
->>>>>>> develop
     public function __construct()
     {
         $this->commands = new ArrayCollection();
@@ -125,8 +122,6 @@ class Product
 
         return $this;
     }
-<<<<<<< HEAD
-=======
 
     public function getPicture(): ?string
     {
@@ -151,5 +146,4 @@ class Product
 
         return $this;
     }
->>>>>>> develop
 }
