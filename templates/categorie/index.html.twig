@@ -1,0 +1,52 @@
+{% extends 'app/base/index.html.twig' %}
+{% block title %}Accueil
+{% endblock %}
+{% block body %}
+	{% block stylesheets %}
+		{{ encore_entry_link_tags('home-app') }}
+	{% endblock %}
+	<div id="home-app">
+		{% for category in categories %}
+			<div class="container mt-3">
+				<div class="card">
+					<div class="card-header bg-light">
+						<h3>{{category.name}}</h3>
+					</div>
+					<div class="main">
+
+						<section class="content offset-1">
+							<div class="product-content" data-length-products="{{ products|length }}">
+								{% set i = 0 %}
+								{% for product in products %}
+									{% if product.category.name == category.name %}
+										<div class="product-item">
+											<div class="favorite">
+												<i class="fa fa-star" aria-hidden="true"></i>
+											</div>
+											<div class="image">
+												<a class="image_product" href="{{path('app_categorie',{id : product.id, name: product.name,ansum : "ansum"})}}"><img src="{{ asset("images/product/" ~ product.picture ~ "") }}">
+												</a>
+											</div>
+											<div style="padding: 20px;" class="div-desc">
+												<h3 style="color: #071e7a; text-align: center;">{{ product.name }}</h3>
+												<h3 style="color: #ff6600; text-align: center;">{{ product.price }}
+													€</h3>
+												<h6 style="color: #071e7a;">{{ product.description }}</h6>
+												<button id="btn-add-{{ i }}" data-price="{{ product.price }}" class="btn-round-ecom">Ajouter</button>
+											</div>
+										</div>
+										{% set i = i + 1 %}
+									{% endif %}
+								{% endfor %}
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+	{% block javascripts %}
+		{{ encore_entry_script_tags('home-app') }}
+	{% endblock %}
+{% endblock %}
+

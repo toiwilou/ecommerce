@@ -1,0 +1,27 @@
+html,
+body{
+    height: 100%;
+}
+.input{
+    font-family: georgia;
+    font-style: italic;
+}
+h2{
+    font-family: 'Old English Text MT';
+}
+.label{
+    font-family: georgia;
+}
+#form{
+    border-radius: 10px;
+}
+#body{
+  height: 100%;  
+}
+input,label{
+    color: white;
+}
+input,textarea{
+    border: 10px solid white;
+}
+

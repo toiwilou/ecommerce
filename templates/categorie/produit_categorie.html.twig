@@ -1,0 +1,49 @@
+{% extends 'app/base/index.html.twig' %}
+
+{% block body %}
+	<style>
+		body {
+			background-color: #ebeef0;
+		}
+	</style>
+	<div id="home-app">
+		<div class="container mt-3">
+			<div class="card">
+				<div class="main">
+
+					<section class="content offset-1">
+						<div class="product-content">
+							<div class="product-item">
+								<div class="row">
+
+									<div class="image col-md-5">
+										<a class="image_product" href="{{path('app_categorie',{id : product.id, name: product.name})}}"><img style="width:400px;border-right:1px solid orange" src="{{ asset("images/product/" ~ product.picture ~ "") }}">
+										</a>
+									</div>
+									<div class="col-md-6">
+										<div style="padding: 20px;" class="div-desc">
+											<h3 style="color: #071e7a; text-align: center;border-bottom: 1px solid #ebeef0; padding-bottom: 10px;font-family:georgia;">
+												{{ product.name }}</h3>
+											<h3 style="color: #ff6600; text-align: center;border-bottom: 1px solid #ebeef0; padding-bottom: 10px;font-family:georgia;">Prix :
+												{{ product.price }}
+												€</h3>
+											<h3 style="color: #071e7a; text-align: center;border-bottom: 1px solid #ebeef0; padding-bottom: 10px;font-family:georgia;">Stock :
+												{{ product.quantity }}</h3>
+											<div style="border-bottom: 1px solid #ebeef0; padding-bottom: 10px; text-align: center;font-family:georgia;">
+												<h3>Quantité</h3>
+												<input disabled style="color: #ff6600; text-align: center;" type="number" name="quantity" class="col border-0 text-center flex-grow-1 fs-16 input-number" placeholder="1" value="1" min="1" max="15"><br>
+											</div>
+											<button class="btn btn-outline-primary mt-5 offset-2">Ajouter au panier</button>
+											<button class="btn btn-outline-success mt-5">J'achete</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock body %}
+

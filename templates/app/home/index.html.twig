@@ -18,26 +18,16 @@
                 </p>
             </div>
             <div class="div-right">
-                <div class="div-search v-center shadow">
-                    <input type="text" class="form-control" placeholder="Rechercher...">
-                    <div class="icon-search">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
-                </div>
+            
             </div>
         </div>
     </section>
     <div class="main">
         <section class="sidebar">
-            <span>Toutes les categories</span>
-            <ul>
-                {% for category in categories %}
-                    <li>{{ category.name }}</li>
-                {% endfor %}
-            </ul>
+            
         </section>
         <section class="content">
-            <div class="product-content">
+            <div class="product-content" data-length-products="{{ products|length }}">
                 {% set i = 0 %}
                 {% for product in products %}
                     <div class="product-item">
@@ -45,13 +35,13 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
                         <div class="image">
-                            <img src="{{ asset("images/product/" ~ product.picture ~ "") }}">
+                           <a href="{{path('app_categorie',{id : product.id, name: product.name})}}"><img src="{{ asset("images/product/" ~ product.picture ~ "") }}"> </a> 
                         </div>
                         <div style="padding: 20px;" class="div-desc">
                             <h3 style="color: #071e7a; text-align: center;">{{ product.name }}</h3>
                             <h3 style="color: #ff6600; text-align: center;">{{ product.price }} €</h3>
                             <h6 style="color: #071e7a;">{{ product.description }}</h6>
-                            <button id="add-{{ i }}" class="btn-round-ecom">Ajouter</button>
+                            <button id="btn-add-{{ i }}" data-price="{{ product.price }}" class="btn-round-ecom">Ajouter</button>
                         </div>
                     </div>
                     {% set i = i + 1 %}

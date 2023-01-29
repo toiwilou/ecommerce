@@ -16,9 +16,9 @@
         width: 100%;
     }
     #header-app nav {
-        margin-left: 50px;
+        margin-left: 20px;
         position: relative;
-        width: 410px;
+        flex: auto;
     }
     #header-app nav ul {
         margin: 0;
@@ -28,7 +28,7 @@
     #header-app nav li {
         display: inline-block;
         font-size: 20px;
-        width: 200px;
+        width: 150px;
         text-align: center;
     }
     #header-app nav li a {
@@ -38,6 +38,17 @@
     #header-app nav li a:hover {
         color: #e67104;
         transition: 0.2s;
+    }
+    #header-app nav .container {
+        display: flex;
+        width: 100%;
+    }
+    #header-app nav .div-search-container {
+        flex: auto;
+    }
+    #header-app nav .div-search {
+        display: flex;
+        margin-left: 30px;
     }
     #header-app .div-right {
         flex: auto;
