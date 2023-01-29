@@ -20,6 +20,8 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "maildev": "^2.0.5"
+        "maildev": "^2.0.5",
+        "bcrypt": "^5.1.0",
+        "bootstrap-icons": "^1.10.3"
     }
 }

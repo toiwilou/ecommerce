@@ -8,7 +8,9 @@ const lengthProducts = productContent.dataset.lengthProducts;
 for (let i = 0; i < lengthProducts; i++) {
     const btnAdd = document.querySelector('#btn-add-' + i);
     const price = parseFloat(btnAdd.dataset.price);
+    const productItem = document.querySelector('.product-item-' + i);
     btnAdd.addEventListener('click', () => {
+        console.log(productItem.dataset.id);
         const cartNummberElement = document.querySelector('.cart-number');
         let cartNummber = parseInt(cartNummberElement.innerHTML);
         cartNummber++;
@@ -18,6 +20,7 @@ for (let i = 0; i < lengthProducts; i++) {
             cartNummberElement.removeAttribute('hidden');
         }
         const initPrice = parseFloat(cartPrice.innerHTML);
-        cartPrice.innerHTML = price + initPrice;
+        let finalPrice = price + initPrice;
+        cartPrice.innerHTML = String(finalPrice).replace('.', ',');
     });
 }

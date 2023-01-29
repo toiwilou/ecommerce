@@ -18,12 +18,11 @@ class Category
     #[ORM\Column(length: 255, unique: true)]
     private ?string $name = null;
 
-<<<<<<< HEAD
-    #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class)]
-=======
     #[ORM\OneToMany(mappedBy: 'category', targetEntity: Product::class, orphanRemoval: true)]
->>>>>>> develop
     private Collection $products;
+
+    #[ORM\Column(length: 255)]
+    private ?string $icon = null;
 
     public function __construct()
     {
@@ -76,4 +75,20 @@ class Category
 
         return $this;
     }
+<<<<<<< HEAD
 }
+=======
+
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    public function setIcon(string $icon): self
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+}
+>>>>>>> eace7c6475942e0aabba7c4f8d7e41d69c992e5f

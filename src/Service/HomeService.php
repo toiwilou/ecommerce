@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\Category;
+use Symfony\Component\HttpFoundation\Request;
 use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
@@ -23,7 +24,10 @@ class HomeService
     {
         return $this->categoryRepository->findAll();
     }
-
+    public function getArticle(Request $request){
+        
+        $search = $request->query->get('search');
+    }
     public function getProducts (): array
     {
         /* $categories = [
