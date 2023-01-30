@@ -35,7 +35,7 @@
                             <i class="fa fa-star" aria-hidden="true"></i>
                         </div>
                         <div class="image">
-                            <img src="{{ asset("images/product/" ~ product.picture ~ "") }}">
+                           <a href="{{path('app_categorie',{id : product.id, name: product.name})}}"><img src="{{ asset("images/product/" ~ product.picture ~ "") }}"> </a> 
                         </div>
                         <div style="padding: 20px;" class="div-desc">
                             <h3 style="color: #071e7a; text-align: center;">{{ product.name }}</h3>

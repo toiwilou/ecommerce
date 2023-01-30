@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +16,7 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class RegistrationFormType extends AbstractType
+class ContactType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -41,14 +42,20 @@ class RegistrationFormType extends AbstractType
                 'placeholder' => 'prenom' 
             ]
         ] )
-        ->add('password', RepeatedType::class, [
-            'type' => PasswordType::class,
-            'invalid_message' => 'Le mot de passe n\'est pas le même',
-            'options' => ['attr' => ['class' => 'password-field']],
-            'required' => true,
-            'first_options'  => ['label' => 'Mot de passe'],
-            'second_options' => ['label' => 'Confirmation du mot de passe'],
-        ])
+        ->add('phone', TextType::class, [
+            'label' => 'telephone',
+            'attr' => [
+                'class' => 'form-control',
+                'placeholder' => 'telephone' 
+            ]
+        ] )
+        ->add('message', TextareaType::class, [
+            'label' => 'message',
+            'attr' => [
+                'class' => 'form-control',
+                'placeholder' => 'message' 
+            ]
+        ] )
         ;
     }
 
